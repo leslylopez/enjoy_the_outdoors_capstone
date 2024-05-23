@@ -62,21 +62,14 @@ function displayMountainCard(event) {
     </div>
     */
 
-//     <ul class="list-group list-group-flush">
-//     <li class="list-group-item">An item</li>
-//     <li class="list-group-item">A second item</li>
-//     <li class="list-group-item">A third item</li>
-//   </ul>
+    //     <ul class="list-group list-group-flush">
+    //     <li class="list-group-item">An item</li>
+    //     <li class="list-group-item">A second item</li>
+    //     <li class="list-group-item">A third item</li>
+    //   </ul>
 
     let cardDiv = document.createElement("div");
     cardDiv.classList.add("card", "w-25");
-
-    // let cardTitle = document.createElement("h5");
-    // cardTitle.classList.add("card-title");
-
-    // cardTitle.innerText = mountain.name;
-
-    // cardBody.appendChild(cardTitle);
 
     let cardImage = document.createElement("img")
     cardImage.classList.add("card-img-top");
@@ -90,7 +83,7 @@ function displayMountainCard(event) {
     cardDiv.classList.add("card-body");
 
     let cardTitle = document.createElement("h5");
-    cardTitle.classList.add("card-sub-title");
+    cardTitle.classList.add("card-title");
 
     cardTitle.innerText = mountain.name;
 
@@ -100,11 +93,41 @@ function displayMountainCard(event) {
     cardText.classList.add("card-text");
 
     cardText.innerHTML =
-        `${mountain.desc}`
+        `${mountain.desc}`;
 
     cardBody.appendChild(cardText);
 
+
+
+
+    let cardUl = document.createElement("ul");
+    cardUl.classList.add("list-group", "list-group-flush");
+
+    let cardListItem = document.createElement("li");
+    cardListItem.classList.add("list-group-item");
+
+    cardListItem.innerHTML = `Elevation: ${mountain.elevation} ft`
+
+    cardUl.appendChild(cardListItem);
+
+    let cardListItem2 = document.createElement("li");
+    cardListItem2.classList.add("list-group-item");
+
+    cardListItem2.innerHTML = `Effort: ${mountain.effort} ft`
+
+    cardUl.appendChild(cardListItem2);
+
+    let cardListItem3 = document.createElement("li");
+    cardListItem3.classList.add("list-group-item");
+
+    cardListItem3.innerHTML = `Effort: ${mountain.effort}`
+
+    cardUl.appendChild(cardListItem3);
+
+
     cardDiv.appendChild(cardBody);
+
+    cardDiv.appendChild(cardUl)
 
     mountainDiv.append(cardDiv);
 

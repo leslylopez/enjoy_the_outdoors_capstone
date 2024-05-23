@@ -30,15 +30,51 @@ window.onload = function () {
 
     //get the location dropdown
     let parkLocationDropdown = document.querySelector("#parksSelectByLocation")
-    let parkTypeDropdown = document.querySelector ("#parksSelectByType")
+    let parkTypeDropdown = document.querySelector("#parksSelectByType")
+
+    let locationRadio = document.querySelector("#locationRadio");
+    let typeRadio = document.querySelector("#typeRadio");
+
+    hideElement("#parksSelectByLocation");
+    hideElement("#parksSelectByType")
+
+    //addeventlistener
+
+    locationRadio.addEventListener("click", hideShowRadio);
+    typeRadio.addEventListener("click", hideShowRadio);
 
     //make sure we run the code to work with the state location when it's selected
     parkLocationDropdown.addEventListener("change", displayLocation);
     parkTypeDropdown.addEventListener("change", displayTypeInfo);
 
+
 }
 
 
+function hideShowRadio(event) {
+
+    if (event.target.value === "type") {
+        showElement("#parksSelectByType");
+        hideElement("#parksSelectByLocation");
+    } else {
+        showElement("#parksSelectByLocation");
+        hideElement("#parksSelectByType");
+    }
+}
+
+//This function will hide an HTML element on the page
+//Just pass it the id of the element you want to hide
+function hideElement(someSelector) {
+    let el = document.querySelector(someSelector);
+    el.style.display = "none";
+}
+
+//This function will show an HTML element on the page
+//Just pass it the id of the element you want to show
+function showElement(someSelector) {
+    let el = document.querySelector(someSelector);
+    el.style.display = "block";
+}
 
 function displayLocation(event) {
 
@@ -67,37 +103,37 @@ function displayLocation(event) {
 
 }
 
- function displayTypeInfo (event) {
+function displayTypeInfo(event) {
 
- let selectedParkType = event.target.value;
+    let selectedParkType = event.target.value;
 
- let matchingParkType = nationalParksArray.filter((type) => {
+    let matchingParkType = nationalParksArray.filter((type) => {
 
-      if (type.LocationName.indexOf(selectedParkType) !== -1) {
+        if (type.LocationName.indexOf(selectedParkType) !== -1) {
 
-         return true;
+            return true;
 
-     }
+        }
 
-     return false;
+        return false;
 
- });
+    });
 
-console.log(selectedParkType)
+    console.log(selectedParkType)
 
- let tableBody = document.querySelector("#parkTableBody")
+    let tableBody = document.querySelector("#parkTableBody")
 
- tableBody.innerHTML = "";
+    tableBody.innerHTML = "";
 
-// //loop over National Parks array
- matchingParkType.forEach((data) => {
+    // //loop over National Parks array
+    matchingParkType.forEach((data) => {
 
-     buildTableRow (tableBody, data);
+        buildTableRow(tableBody, data);
 
- })
+    })
 
- 
- };
+
+};
 
 
 
@@ -195,63 +231,63 @@ function initparkLocationDropdown() {
 
 }
 
- function initparkTypeDropdown () {
+function initparkTypeDropdown() {
 
- let parkTypeDropdown = document.querySelector("#parksSelectByType")
+    let parkTypeDropdown = document.querySelector("#parksSelectByType")
 
- let defaultOption = document.createElement("option")
+    let defaultOption = document.createElement("option")
 
- defaultOption.value = "";
+    defaultOption.value = "";
 
- defaultOption.textContent = "Select Park Type";
+    defaultOption.textContent = "Select Park Type";
 
- parkTypeDropdown.appendChild(defaultOption);
+    parkTypeDropdown.appendChild(defaultOption);
 
- parkTypesArray.forEach((parkType) => {
+    parkTypesArray.forEach((parkType) => {
 
-     let newOption = document.createElement("option");
+        let newOption = document.createElement("option");
 
-     newOption.value = parkType;
+        newOption.value = parkType;
 
-     newOption.textContent = parkType;
+        newOption.textContent = parkType;
 
-     parkTypeDropdown.appendChild(newOption);
+        parkTypeDropdown.appendChild(newOption);
 
- }
- )
+    }
+    )
 
- }
+}
 
- function getLocationInfo(nationalParksArray, State) {
+function getLocationInfo(nationalParksArray, State) {
 
-     //an empty list to hold our matches
-     let matching = [];
+    //an empty list to hold our matches
+    let matching = [];
 
-     //the number of national parks
-     let numItems = nationalParksArray.length;
+    //the number of national parks
+    let numItems = nationalParksArray.length;
 
-     //loop over the states to find matches
-     for (let i = 0; i < numItems; i++) {
-         if (nationalParksArray[i].State === State) {
-             matching.push(nationalParksArray[i]);
-         }
-     }
+    //loop over the states to find matches
+    for (let i = 0; i < numItems; i++) {
+        if (nationalParksArray[i].State === State) {
+            matching.push(nationalParksArray[i]);
+        }
+    }
 
-     return matching;
+    return matching;
 
 
- }
+}
 
 
 
 //hide and show
 
- function hideShowType(event) {
-     let el = document.querySelector("#toppings");
+function hideShowType(event) {
+    let el = document.querySelector("#toppings");
 
-     if (event.target.value === "cup") {
-         el.classList.remove("d-none")
-     } else {
-         el.classList.add("d-none")
-     }
- }
+    if (event.target.value === "cup") {
+        el.classList.remove("d-none")
+    } else {
+        el.classList.add("d-none")
+    }
+}
