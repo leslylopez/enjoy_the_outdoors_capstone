@@ -120,7 +120,7 @@ function displayMountainCard(event) {
     let cardListItem3 = document.createElement("li");
     cardListItem3.classList.add("list-group-item");
 
-    cardListItem3.innerHTML = `Effort: ${mountain.effort}`
+    cardListItem3.innerHTML = `Lat: ${mountain.coords.lat}  Lng: ${mountain.coords.lng}`
 
     cardUl.appendChild(cardListItem3);
 
