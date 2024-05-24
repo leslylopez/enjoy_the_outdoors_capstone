@@ -79,6 +79,7 @@ function displayMountainCard(event) {
     cardUl.appendChild(cardListItem);
 
     let cardListItem2 = document.createElement("li");
+    
     cardListItem2.classList.add("list-group-item");
 
     cardListItem2.innerHTML = `Effort: ${mountain.effort} ft`

@@ -1,25 +1,5 @@
 "use strict"
 
-//window.onload = () => {
-
-/*
-    You can remove the following console.log() lines.
-    They are here to verify that we have access to the data
-    The data script files are located in the scripts/data directory
-*/
-
-//log the locationsArray to the console (scripts/data/locationData.js)
-//console.log(locationsArray)
-
-//log the parkTypesArray to the console (scripts/data/parkTypeData.js)
-//console.log(parkTypesArray)
-
-//log the nationalParksArray to the console (scripts/data/nationalParkData.js)
-//console.log(nationalParksArray)
-
-
-
-//}
 
 window.onload = function () {
 
@@ -168,35 +148,6 @@ function buildTableRow(tableBody, data) {
 
 }
 
-// function buildTableRow2 (tableBody, info) {
-
-//     let newRow = tableBody.insertRow()
-
-//     let cell1 = newRow.insertCell();
-//     cell1.innerHTML = info.LocationID;
-
-//     let cell2 = newRow.insertCell();
-//     cell2.innerHTML = info.LocationName;
-
-//     let cell3 = newRow.insertCell();
-//     cell3.innerHTML = `${info.Address}, ${info.City}, ${info.State}, ${info.ZipCode}`
-
-//     let cell4 = newRow.insertCell();
-//     cell4.innerHTML = `Phone:${info.Phone} Fax:${info.Fax}`
-
-//     if (data.Visit) {
-
-//         let cell5 = newRow.insertCell();
-//         cell5.innerHTML = info.Visit;
-
-//     } else {
-
-//         let cell5 = newRow.insertCell();
-//         cell5.innerHTML = `N/A`
-
-//     }
-
-// }
 
 function initparkLocationDropdown() {
 
@@ -276,18 +227,4 @@ function getLocationInfo(nationalParksArray, State) {
     return matching;
 
 
-}
-
-
-
-//hide and show
-
-function hideShowType(event) {
-    let el = document.querySelector("#toppings");
-
-    if (event.target.value === "cup") {
-        el.classList.remove("d-none")
-    } else {
-        el.classList.add("d-none")
-    }
 }
