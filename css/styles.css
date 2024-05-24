@@ -1,0 +1,63 @@
+html {
+
+    background-color: rgb(233, 224, 207);
+    margin: 20px;
+}
+
+
+.navbar {
+    background-color: rgb(233, 224, 207);
+   }
+
+body {
+    background-color: rgb(233, 224, 207);
+}
+
+.carousel-item img {
+
+    height: 700px;
+    padding-left: 30px;
+    padding-right: 30px;
+    
+
+}
+
+h2 {
+    
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 40px;
+}
+
+ .card-img-top2 {
+    width: 100%;
+    height: 40vw;
+    object-fit:fill;
+    padding: 30px;
+} 
+
+.navbar-brand {
+
+    height: 48px;
+    display: flex;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 35px;
+
+}
+
+.navbar-nav {
+    color: rgb(48, 79, 48);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    
+}
+
+
+#mountainSelect {
+    
+   
+    
+    align-items: center;
+}

@@ -69,10 +69,10 @@ function displayMountainCard(event) {
     //   </ul>
 
     let cardDiv = document.createElement("div");
-    cardDiv.classList.add("card", "w-25");
+    cardDiv.classList.add("card", "w-25", "bg-dark", "text-light");
 
     let cardImage = document.createElement("img")
-    cardImage.classList.add("card-img-top");
+    cardImage.classList.add("card-img-top", "card-img-fit");
 
     cardImage.src = mountain.img;
     cardImage.alt = mountain.name;
