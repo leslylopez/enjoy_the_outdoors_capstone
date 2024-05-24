@@ -1,20 +1,6 @@
 "use strict"
 
 
-//window.onload = () => {
-
-/*
-You can remove the following console.log() lines.
-They are here to verify that we have access to the data
-The data script files are located in the scripts/data directory
-*/
-
-//log the mountainsArray to the console (scripts/data/mountainData.js)
-//console.log(mountainsArray)
-
-
-//}
-
 window.onload = () => {
 
     initMountainsDropdown();
@@ -50,35 +36,19 @@ function displayMountainCard(event) {
 
     })
 
-    /*
-    bootstrap card example:
-    
-    <div class="card">
-      <img src="PET IMAGE PATH GOES HERE" class="card-img-top" alt="ALT TEXT HERE">
-      <div class="card-body">
-        <h5 class="card-title">PET NAME HERE</h5>
-        <p class="card-text">PET DETAILS HERE</p>
-      </div>
-    </div>
-    */
-
-    //     <ul class="list-group list-group-flush">
-    //     <li class="list-group-item">An item</li>
-    //     <li class="list-group-item">A second item</li>
-    //     <li class="list-group-item">A third item</li>
-    //   </ul>
-
+    //made a card div to hold all the card content
     let cardDiv = document.createElement("div");
-    cardDiv.classList.add("card", "w-25", "bg-dark", "text-light");
+    cardDiv.classList.add("card", "w-25", "bg-dark", "text-light", "container-fluid");
 
     let cardImage = document.createElement("img")
-    cardImage.classList.add("card-img-top", "card-img-fit");
+    cardImage.classList.add("card-img-top", "mx-auto");
 
     cardImage.src = mountain.img;
     cardImage.alt = mountain.name;
 
     cardDiv.appendChild(cardImage)
 
+    //added card body that will hold the paragraph and card title
     let cardBody = document.createElement("div");
     cardDiv.classList.add("card-body");
 
@@ -97,9 +67,7 @@ function displayMountainCard(event) {
 
     cardBody.appendChild(cardText);
 
-
-
-
+    //created unordered list to hold list items
     let cardUl = document.createElement("ul");
     cardUl.classList.add("list-group", "list-group-flush");
 
@@ -107,7 +75,7 @@ function displayMountainCard(event) {
     cardListItem.classList.add("list-group-item");
 
     cardListItem.innerHTML = `Elevation: ${mountain.elevation} ft`
-
+    //appended every list item added
     cardUl.appendChild(cardListItem);
 
     let cardListItem2 = document.createElement("li");
@@ -124,7 +92,7 @@ function displayMountainCard(event) {
 
     cardUl.appendChild(cardListItem3);
 
-
+    //appended all elements
     cardDiv.appendChild(cardBody);
 
     cardDiv.appendChild(cardUl)
@@ -133,18 +101,22 @@ function displayMountainCard(event) {
 
 };
 
+
+//the dropdown for list of mountains
 function initMountainsDropdown() {
 
     let mountainDropdown = document.querySelector("#mountainSelect");
 
     let defaultOption = document.createElement("option");
 
+    //resets the dropdown after new item is selected
     defaultOption.value = "";
 
     defaultOption.textContent = "Select a Mountain";
 
     mountainDropdown.appendChild(defaultOption);
 
+    //looped over mountain list to access it's properties
     mountainsArray.forEach((mountain) => {
 
         let newOption = document.createElement("option");
